@@ -112,42 +112,62 @@
                 margin-top: 22px;">
             </div>
         </form>
+        <form action="" method="post">
+            <div style="margin-top: 17px;">
+                <button name="alreadyAccount" id="alreadyAccount" style="color: orange;font-weight: bold;font-family: monospace;font-size: 16px;
+                border-color:orange;border-radius:7px;padding:7px;">Already have an account</button>
+            </div>
+        </form>
         <?php
         include "C:\inetpub\wwwroot\php\sms\Utilities\_init.php" ;
-            $createTable= "CREATE TABLE $STUDENT($STUD_FNAME VARCHAR(20),$STUD_EMAIL VARCHAR(42) PRIMARY KEY,$STUD_PASSWORD VARCHAR(12))";
+            $createTable= "CREATE TABLE $STUDENT(
+                $STUD_FNAME VARCHAR(20),$STUD_LNAME VARCHAR(20),
+                $STUD_EMAIL VARCHAR(42) UNIQUE,$STUD_MOBILE BIGINT(10) UNIQUE,$STUD_GENDER VARCHAR(10),
+                $STUD_CAST VARCHAR(10) ,$STUD_COLLEGE VARCHAR(100),$STUD_COURSE VARCHAR(52),
+                $STUD_ID BIGINT(10) , $STUD_DIV INT(1),$STUD_RNO INT(3),$STUD_ADDRESS VARCHAR(100),
+                $STUD_CITY VARCHAR(20), $STUD_STATE VARCHAR(10),$STUD_PINCODE INT(6),$STUD_PASSWORD TEXT)";
 
             //$queryExe=mysqli_query($con,$createTable);
 
-            if(isset($_POST['btnLogin'])){
+            if(isset($_POST['btnSignUp'])){
                 $FNAME=$_POST[$STUD_FNAME];
+                $LNAME=$_POST[$STUD_LNAME];
                 $EMAIL=$_POST[$STUD_EMAIL];
+                $MCODE=$_POST['mcode'];
+                $MNO=$_POST[$STUD_MOBILE];
+                $MOBILE=$MCODE.$MNO;
+                $GENDER=$_POST[$STUD_GENDER];
+                $CAST=$_POST[$STUD_CAST];
+                $COLLEGE=$_POST[$STUD_COLLEGE];
+                $COURSE=$_POST[$STUD_COURSE];
+                $ID=$_POST[$STUD_ID];
+                $DIV=$_POST[$STUD_DIV];
+                $RNO=$_POST[$STUD_RNO];
+                $ADDRESS=$_POST[$STUD_ADDRESS];
+                $CITY=$_POST[$STUD_CITY];
+                $STATE=$_POST[$STUD_STATE];
+                $PINCODE=$_POST[$STUD_PINCODE];
                 $PASSWORD=$_POST[$STUD_PASSWORD];
 
-                $insertInTable= "INSERT INTO $STUDENT VALUES('$FNAME','$EMAIL','$PASSWORD')";
+                $insertInTable= "INSERT INTO $STUDENT VALUES('$FNAME','$LNAME','$EMAIL',$MOBILE,'$GENDER','$CAST','$COLLEGE','$COURSE',$ID,$DIV,$RNO,'$ADDRESS','$CITY','$STATE',$PINCODE,'$PASSWORD')";
                 $queryExe=mysqli_query($con,$insertInTable);
                 if($queryExe){
+                    ?>
+                        <script type="text/javascript">
+                            alert("Successfully Register !")
+                            window.open("http://localhost/php/sms/Home/Home.php","_self")
+                            </script>
+                    <?php
                 }
             }
-        ?>
-        <?php
 
-            // if(isset($_POST['btnSignUp'])){
-            //     echo $_POST['studfname'];
-            //     echo $_POST['studlname'];
-            //     echo $_POST['studemail'];
-            //     echo $_POST['studmno'];
-            //     echo $_POST['studgender'];
-            //     echo $_POST['studcast'];
-            //     echo $_POST['studcollege'];
-            //     echo $_POST['studcourse'];
-            //     echo $_POST['studid'];
-            //     echo $_POST['studdiv'];
-            //     echo $_POST['studrno'];
-            //     echo $_POST['studaddress'];
-            //     echo $_POST['studcity'];
-            //     echo $_POST['studstate'];
-            //     echo $_POST['studpincode'];
-            // }
+            if(isset($_POST['alreadyAccount'])){
+                ?>
+                <script>
+                    window.open("http://localhost/php/sms/Home/Login.php","_self")
+                    </script>
+                <?php
+            }
         ?>
     </body>
 </html>
