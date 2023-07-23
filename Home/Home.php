@@ -67,7 +67,7 @@
     <body id="grad_back">
     <table style="margin:auto ; margin-top:90px ; margin-bottom:90px">
         <td>
-            <img src ="/sms/assets/images/png/back.png" class="center_img" width=500px/>
+           
         </td>
         <td>
             <h1 style="font-family:Comic Sans MS ; color:white ;">Student Management System</h1>
@@ -84,12 +84,12 @@
 
             <table>
                 <td>
-                    <form action="signup.php" method="POST">
+                    <form action="" method="post">
                         <button style="margin-right:20px" class="button_start button2" name="btnSignUp">Getting Started</button>
                     </form>
                 </td>
                 <td>
-                    <form action="signin.php" method="POST">
+                    <form action="" method="post">
                         <button class="button_signup button2" name="btnSignIn">Sign In</button>
                     </form>
                 </td>
@@ -99,6 +99,20 @@
     </table>
     </body>
     <?php
+        if(isset($_POST['btnSignUp'])){
+            ?>
+                <script>
+                    window.open("http://localhost/php/sms/Home/index.php","_self")
+                    </script>
+            <?php
+        }
 
+        if(isset($_POST['btnSignIn'])){
+            ?>
+                <script>
+                    window.open("http://localhost/php/sms/Home/Login.php","_self")
+                    </script>
+            <?php
+        }
     ?>
 </html>
