@@ -67,7 +67,7 @@
     <body id="grad_back">
     <table style="margin:auto ; margin-top:90px ; margin-bottom:90px">
         <td>
-           
+            <img src="home_back.png" alt="image" width=700px>
         </td>
         <td>
             <h1 style="font-family:Comic Sans MS ; color:white ;">Student Management System</h1>
