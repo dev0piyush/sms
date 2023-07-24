@@ -38,8 +38,13 @@
                 border-color:dodgerblue;border-radius:7px;padding:7px;padding-left: 17px;padding-right: 17px;">New student? create now</button>
             </div>
         </form>
-    </body>
-    <?php
+        <form action="" method="post">
+            <div style="margin-top: 17px;">
+                <button name="forgotPassword" id="forgotPassword" style="color: black;font-weight: bold;font-family: monospace;font-size: 16px;
+                border-color:black;border-radius:7px;padding:7px;padding-left: 17px;padding-right: 17px;">Forgot Password</button>
+            </div>
+        </form>
+        <?php
         include "C:\inetpub\wwwroot\php\sms\Utilities\_init.php" ;
 
         if(isset($_POST['btnLogin'])){
@@ -47,29 +52,53 @@
             $PASSWORD=$_POST[$STUD_PASSWORD];
             
 
-            $selectQuery="SELECT $STUD_EMAIL,$STUD_PASSWORD FROM $STUDENT";
+            $selectQuery="SELECT * FROM $STUDENT WHERE $STUD_EMAIL='$EMAIL' AND $STUD_PASSWORD='$PASSWORD'";
             $dbQuery=mysqli_query($con,$selectQuery);
             $data=mysqli_num_rows($dbQuery);
 
             if($data){
-                while($row=mysqli_fetch_array($dbQuery)){
-                    ?>
-                    <tr>
-                        <td>
-                        <?php
-                            echo $row[0];
+                ?>
+                    <script type="text/javascript">
+                        alert('Successfully Login')
+                        </script>
+
+                <?php
+            }else if($selectQuery="SELECT * FROM $STUDENT WHERE $STUD_EMAIL='$EMAIL'"){
+                $dbQuery=mysqli_query($con,$selectQuery);
+                $data=mysqli_num_rows($dbQuery);
+                if($data){
+                    if($data){
                         ?>
-                        </td>
-                        <td>
+                            <script type="text/javascript">
+                                alert('Wrong Password')
+                                </script>
+        
                         <?php
-                            echo $row[1];
-                        ?>
-                        </td>
-                    </tr>
-                    <?php
                 }
+            }else{
+                ?>
+                        <script type="text/javascript">
+                            alert('Email not found !!')
+                            </script>
+    
+                    <?php
             }
         }
-
+    }
+    if(isset($_POST['newAccount'])){
+        ?>
+            <script type="text/javascript">
+                    window.open("http://localhost/php/sms/Home/index.php","_self")
+                </script>
+        <?php
+    }
+    if(isset($_POST['forgotPassword'])){
+        ?>
+            <script type="text/javascript">
+                    window.open("http://localhost/php/sms/Home/ForgotPassword.php","_self")
+                </script>
+        <?php
+    }
     ?>
+    </body>
 </html>

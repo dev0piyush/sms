@@ -124,7 +124,7 @@
                 $STUD_FNAME VARCHAR(20),$STUD_LNAME VARCHAR(20),
                 $STUD_EMAIL VARCHAR(42) UNIQUE,$STUD_MOBILE BIGINT(10) UNIQUE,$STUD_GENDER VARCHAR(10),
                 $STUD_CAST VARCHAR(10) ,$STUD_COLLEGE VARCHAR(100),$STUD_COURSE VARCHAR(52),
-                $STUD_ID BIGINT(10) , $STUD_DIV INT(1),$STUD_RNO INT(3),$STUD_ADDRESS VARCHAR(100),
+                $STUD_ID BIGINT(10) UNIQUE , $STUD_DIV INT(1),$STUD_RNO INT(3) UNIQUE,$STUD_ADDRESS VARCHAR(100),
                 $STUD_CITY VARCHAR(20), $STUD_STATE VARCHAR(10),$STUD_PINCODE INT(6),$STUD_PASSWORD TEXT)";
 
             //$queryExe=mysqli_query($con,$createTable);
@@ -149,15 +149,27 @@
                 $PINCODE=$_POST[$STUD_PINCODE];
                 $PASSWORD=$_POST[$STUD_PASSWORD];
 
-                $insertInTable= "INSERT INTO $STUDENT VALUES('$FNAME','$LNAME','$EMAIL',$MOBILE,'$GENDER','$CAST','$COLLEGE','$COURSE',$ID,$DIV,$RNO,'$ADDRESS','$CITY','$STATE',$PINCODE,'$PASSWORD')";
-                $queryExe=mysqli_query($con,$insertInTable);
-                if($queryExe){
-                    ?>
+                $sql="SELECT * FROM $STUDENT WHERE $STUD_EMAIL='$EMAIL' OR $STUD_MOBILE=$MOBILE OR  $STUD_RNO=$RNO OR $STUD_ID=$ID";
+                    $dbquery=mysqli_query($con,$sql);
+                    $data=mysqli_num_rows($dbquery);
+                    if($data){
+                        ?>
                         <script type="text/javascript">
-                            alert("Successfully Register !")
-                            window.open("http://localhost/php/sms/Home/Home.php","_self")
+                            alert("User account already exist, Please kindly contact to administrator")
+                            window.open("http://localhost/php/sms/Home/Login.php","_self")
                             </script>
                     <?php
+                    }else{
+                        $insertInTable= "INSERT INTO $STUDENT VALUES('$FNAME','$LNAME','$EMAIL',$MOBILE,'$GENDER','$CAST','$COLLEGE','$COURSE',$ID,$DIV,$RNO,'$ADDRESS','$CITY','$STATE',$PINCODE,'$PASSWORD')";
+                        $queryExe=mysqli_query($con,$insertInTable);
+                        if($queryExe){
+                        ?>
+                        <script type="text/javascript">
+                            alert("Successfully Register !")
+                            window.open("http://localhost/php/sms/Home/Login.php","_self")
+                            </script>
+                        <?php
+                    }
                 }
             }
 
