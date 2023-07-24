@@ -4,40 +4,51 @@
 <html>
     <head>
     <style>
-    .button_start {
-        background-color: #FF673AB7;
-        border:none;
-        border-radius: 12px;
-        color:white;
-        padding: 15px 30px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 18px;
-        margin: 4px 2px;
-        cursor: pointer;
-        font-family:"Comic Sans MS";
-        -webkit-transition-duration: 0.4s;
-        transition-duration: 0.4s;
-    }
     .button_signup {
-        background-color: #FF673AB7;
-        border:none;
-        border-radius: 12px;
-        color:white;
-        padding: 15px 62px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 18px;
-        margin: 4px 2px;
-        cursor: pointer;
-        font-family:"Comic Sans MS";
-        -webkit-transition-duration: 0.4s;
         transition-duration: 0.4s;
+        border: 3px solid black;
+        font-family:"Comic Sans MS";
+        border-radius: 12px;
+        padding: 15px 30px;
+        display: inline-block;
+        text-align: center;
+        background-color: white;
+        color: black;
+        font-size: 18px;
+        cursor: pointer;
     }
-    .button2:hover {
-        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    .signup {
+        border-color: crimson;
+        background-color: crimson;
+        color: white;
+        }
+
+    .signup:hover {
+        border-color: crimson;
+        background-color: white;
+        color: crimson;
+    }
+    .button_signin {
+        transition-duration: 0.4s;
+        border: 3px solid black;
+        font-family:"Comic Sans MS";
+        border-radius: 12px;
+        padding: 15px 75px;
+        display: inline-block;
+        text-align: center;
+        background-color: white;
+        color: black;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    .signin {
+        border-color: crimson;
+        color: crimson;
+        }
+
+    .signin:hover {
+        background-color: crimson;
+        color: white;
     }
     .container {
     position: relative;
@@ -56,7 +67,7 @@
     }
     #grad_back {
         height: 600px;
-        background-image: linear-gradient(to bottom right , red , grey , blue);
+        background-image: linear-gradient(to bottom right , red , blue , red);
     } 
 
     </style>
@@ -67,7 +78,7 @@
     <body id="grad_back">
     <table style="margin:auto ; margin-top:90px ; margin-bottom:90px">
         <td>
-            <img src="home_back.png" alt="image" width=700px>
+            <img src ="home_back.png" class="center_img" width=500px/>
         </td>
         <td>
             <h1 style="font-family:Comic Sans MS ; color:white ;">Student Management System</h1>
@@ -84,13 +95,13 @@
 
             <table>
                 <td>
-                    <form action="" method="post">
-                        <button style="margin-right:20px" class="button_start button2" name="btnSignUp">Getting Started</button>
+                    <form action="signup.php" method="POST">
+                        <button style="margin-right:20px" class="button_signup signup" name="btnSignUp">Getting Started</button>
                     </form>
                 </td>
                 <td>
-                    <form action="" method="post">
-                        <button class="button_signup button2" name="btnSignIn">Sign In</button>
+                    <form action="signin.php" method="POST">
+                        <button class="button_signin signin" name="btnSignIn">Sign In</button>
                     </form>
                 </td>
             </table>
