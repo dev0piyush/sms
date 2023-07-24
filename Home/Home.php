@@ -95,12 +95,12 @@
 
             <table>
                 <td>
-                    <form action="signup.php" method="POST">
+                    <form action="" method="POST">
                         <button style="margin-right:20px" class="button_signup signup" name="btnSignUp">Getting Started</button>
                     </form>
                 </td>
                 <td>
-                    <form action="signin.php" method="POST">
+                    <form action="" method="POST">
                         <button class="button_signin signin" name="btnSignIn">Sign In</button>
                     </form>
                 </td>

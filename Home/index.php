@@ -256,7 +256,7 @@
             $createTable= "CREATE TABLE $STUDENT(
                 $STUD_FNAME VARCHAR(20),$STUD_LNAME VARCHAR(20),
                 $STUD_EMAIL VARCHAR(42) UNIQUE,$STUD_MOBILE BIGINT(10) UNIQUE,$STUD_GENDER VARCHAR(10),
-                $STUD_CAST VARCHAR(10) ,$STUD_COLLEGE VARCHAR(100),$STUD_COURSE VARCHAR(52),
+                $STUD_COLLEGE VARCHAR(100),$STUD_COURSE VARCHAR(52),
                 $STUD_ID BIGINT(10) UNIQUE , $STUD_DIV INT(1),$STUD_RNO INT(3) UNIQUE,$STUD_ADDRESS VARCHAR(100),
                 $STUD_CITY VARCHAR(20), $STUD_STATE VARCHAR(10),$STUD_PINCODE INT(6),$STUD_PASSWORD TEXT)";
 
@@ -270,7 +270,6 @@
                 $MNO=$_POST[$STUD_MOBILE];
                 $MOBILE=$MCODE.$MNO;
                 $GENDER=$_POST[$STUD_GENDER];
-                $CAST=$_POST[$STUD_CAST];
                 $COLLEGE=$_POST[$STUD_COLLEGE];
                 $COURSE=$_POST[$STUD_COURSE];
                 $ID=$_POST[$STUD_ID];
@@ -293,7 +292,7 @@
                             </script>
                     <?php
                     }else{
-                        $insertInTable= "INSERT INTO $STUDENT VALUES('$FNAME','$LNAME','$EMAIL',$MOBILE,'$GENDER','$CAST','$COLLEGE','$COURSE',$ID,$DIV,$RNO,'$ADDRESS','$CITY','$STATE',$PINCODE,'$PASSWORD')";
+                        $insertInTable= "INSERT INTO $STUDENT VALUES('$FNAME','$LNAME','$EMAIL',$MOBILE,'$GENDER','$COLLEGE','$COURSE',$ID,$DIV,$RNO,'$ADDRESS','$CITY','$STATE',$PINCODE,'$PASSWORD')";
                         $queryExe=mysqli_query($con,$insertInTable);
                         if($queryExe){
                         ?>

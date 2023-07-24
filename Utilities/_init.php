@@ -13,7 +13,6 @@ $STUD_LNAME='studlname';
 $STUD_EMAIL='studemail';
 $STUD_MOBILE='studmno';
 $STUD_GENDER='studgender';
-$STUD_CAST='studcast';
 $STUD_COLLEGE='studcollege';
 $STUD_COURSE='studcourse';
 $STUD_ID='studid';
