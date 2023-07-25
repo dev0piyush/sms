@@ -236,7 +236,7 @@
 
                 </form>
 
-                    <form action="" method="post">
+                <form action="" method="post">
                         <div>
                             <button 
                                 class="btn signin" 
@@ -245,7 +245,7 @@
                                 font-weight: bold ;   
                                 border-radius: 12px ; 
                                 margin-top: 22px"
-                                name="alreadyAccount">Sign In
+                                name="alreadyAccount">Already A Student ?
                             </button>
                         </div>
                     </form>

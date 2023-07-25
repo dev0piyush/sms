@@ -7,47 +7,171 @@
             Forgot Password
         </title>
         <style>
+            .btn {
+                border: 2px solid black;
+                background-color: white;
+                color: black;
+                padding: 14px 28px;
+                font-size: 16px;
+                cursor: pointer;
+
+            }.chng_pass {
+                border-color: crimson;
+                color: crimson;
+            }.chng_pass:hover {
+                background-color: crimson;
+                color: white;
+
+            }.go_to_home {
+                border-color: crimson;
+                color: crimson;
+            }.go_to_home:hover {
+                background-color: crimson;
+                color: white;
+
+            }
             .label{
-                font-size: 32px;
-                font-family: monospace;
-                font-weight: bold;
-                font-style: normal;
-                color: thistle;
+                font-family: "Comic Sans MS";
+                color: white;
+            }
+            .split {
+                height: 100%;
+                width: 50%;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                overflow-x: hidden;
+                padding-top: 20px;
+            }
+
+            .left {
+                left: 0;
+                background-color: lightsalmon;
+            }
+
+            .right {
+                right: 0;
+                background-color: rgb(131, 28, 45);
+            }
+
+            .centered {
+                position: absolute;
+                top: 50%;   
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+
+            .centered img {
+                width: 300px;
             }
         </style>
-        <label class="label">
-           Forgot Password
-        </label>
+
     </head>
+
     <body>
-       <form action="" method="post">
-        <div style="margin-top: 17px;">
-            <input type="text" name="studrno" id="studrno" style="margin-inline-start: 7px;padding: 7px; width: 312px;" placeholder="Roll No" required>
-        </div>
-        <div style="margin-top: 7px;">
-            <input type="text" name="studid" id="studid" style="margin-inline-start: 7px;padding: 7px; width: 312px;" placeholder="Sid" required>
-        </div>
-        <div style="margin-top: 7px;">
-            <input type="email" name="studemail" id="studemail" style="margin-inline-start: 7px;padding: 7px; width: 312px;" placeholder="Email Id" >
-        </div>
-        <div style="margin-top: 7px;">
-            <input type="password" name="studpassword" id="studpassword" style="margin-inline-start: 7px;padding: 7px; width: 312px;" placeholder="Password" required>
-        </div>
-        <div style="margin-top: 7px;">
-            <input type="password" name="studcpassword" id="studcpassword" style="margin-inline-start: 7px;padding: 7px; width: 312px;" placeholder="Confirm Password" required>
-        </div>
-        <div>
-            <input type="submit" name="changePassword" id="changePassword" value="Chnage Password" style="padding-left: 32px;padding-right: 32px;padding-top: 7px;padding-bottom: 7px;font-size: 17px;
-            font-family: monospace;font-weight: bold;color: white;background-color: thistle;border-color: thistle;outline-color: thistle;border-radius: 12px;
-            margin-top: 22px;">
-        </div>  
-       </form>
-       <form action="" method="post">
-            <div style="margin-top: 17px;">
-                <button name="gotoHome" id="gotoHome" style="color: gray;font-weight: bold;font-family: monospace;font-size: 16px;
-                border-color:gray;border-radius:7px;padding:7px;padding-left: 17px;padding-right: 17px;">Go to Home</button>
+
+        <div class="split left">
+            <div class="centered">
+                <img src="home_forget_pass.png">
+                <h1 style="font-family: Comic Sans MS ; color: white">Forget Password ? </h1>
+                <p style="font-family: Comic Sans MS ; color: white ; font-size: 20px;">Dont Worry I Gotch You , Be Patient , And Fill The Form Calmly ~</p>
             </div>
-        </form>
+        </div>
+
+        <div class="split right">
+
+            <div class="centered">
+
+                <h2 style="font-family: Comic Sans MS ; color: white ;"> ~ Change Password Here </h2>
+
+                <fieldset style="border-radius:15px ; border-color:white ; border-width:4px ; background-color: #FF7474 ; margin-bottom: 25px">
+
+                    <legend style="font-family: Comic Sans MS ; color: white">
+                        <fieldset style="border-radius:15px ; border-color:white ; border-width:4px ; background-color: crimson">Please Fill Up Data</fieldset>
+                    </legend>
+
+                    <form action="signin.php" method="post">
+
+                        <div style="margin-top: 17px;">
+                            <input type="text" name="studrno" id="studrno" 
+                                style="margin-inline-start: 7px;padding: 7px; width: 250px;
+                                    border-radius: 12px; outline-color: transparent;
+                                    border-color: transparent; margin-bottom: 3px" 
+                                placeholder="Enter Roll No" required>
+                        </div>
+            
+                        <div style="margin-top: 7px;">
+                            <input type="text" name="studid" id="studid" 
+                                style="margin-inline-start: 7px;padding: 7px; width: 250px;
+                                    border-radius: 12px; outline-color: transparent;
+                                    border-color: transparent; margin-bottom: 3px" 
+                                placeholder="Enter SID No" required>
+                        </div>
+            
+                        <div style="margin-top: 7px;">
+                            <input type="email" name="studemail" id="studemail" 
+                                style="margin-inline-start: 7px;padding: 7px; width: 250px;
+                                        border-radius: 12px; outline-color: transparent;
+                                        border-color: transparent; margin-bottom: 3px" 
+                                placeholder="Enter Email ID" >
+                        </div>
+            
+                        <div style="margin-top: 7px;">
+                            <input type="password" name="studpassword" id="studpassword" 
+                                style="margin-inline-start: 7px;padding: 7px; width: 250px;
+                                    border-radius: 12px; outline-color: transparent;
+                                    border-color: transparent; margin-bottom: 3px" 
+                                placeholder="Enter Password Here" required>
+                        </div>
+            
+                        <div style="margin-top: 7px;">
+                            <input type="password" name="studcpassword" id="studcpassword" 
+                                style="margin-inline-start: 7px;padding: 7px; width: 250px;
+                                    border-radius: 12px; outline-color: transparent;
+                                    border-color: transparent; margin-bottom: 3px" 
+                                placeholder="Enter Confirm Password" required>
+                        </div>
+            
+                        <div>
+                            <input class="btn chng_pass" type="submit" name="changePassword" id="changePassword" value="Change Password" 
+                            style="
+                                    padding-left: 28px;
+                                    padding-right: 28px;
+                                    padding-top: 7px;
+                                    padding-bottom: 7px;
+                                    font-size: 17px;
+                                    font-family: Comic Sans MS ; 
+                                    font-weight: bold ;   
+                                    border-radius: 12px ; 
+                                    margin-top: 22px">
+                        </div>  
+            
+                    </form>
+
+                    <form action="#" method="post">
+
+                        <div style="margin-top: 17px;">
+                            <button class="btn go_to_home" name="gotoHome" id="gotoHome" 
+                            style="
+                                padding-left: 48px;
+                                padding-right: 48px;
+                                padding-top: 7px;
+                                padding-bottom: 7px;
+                                font-size: 17px;
+                                font-family: Comic Sans MS ; 
+                                font-weight: bold ;   
+                                border-radius: 12px ; 
+                                margin-bottom: 22px">Go to Home</button>
+                        </div>
+            
+                    </form>
+
+                </fieldset>
+
+            </div>
+
+        </div>
        <?php
         include "C:\inetpub\wwwroot\php\sms\Utilities\_init.php" ;
         if(isset($_POST['changePassword'])){
